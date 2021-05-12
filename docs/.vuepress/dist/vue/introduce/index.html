@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vue源码 | hblog</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="huangbo">
+    
+    <link rel="preload" href="/assets/css/0.styles.38c94a8f.css" as="style"><link rel="preload" href="/assets/js/app.84e29662.js" as="script"><link rel="preload" href="/assets/js/2.053248d9.js" as="script"><link rel="preload" href="/assets/js/11.05f1d642.js" as="script"><link rel="prefetch" href="/assets/js/10.3394c967.js"><link rel="prefetch" href="/assets/js/3.f3dcbf32.js"><link rel="prefetch" href="/assets/js/4.b3617117.js"><link rel="prefetch" href="/assets/js/5.70df6d9c.js"><link rel="prefetch" href="/assets/js/6.021e63ab.js"><link rel="prefetch" href="/assets/js/7.821a295a.js"><link rel="prefetch" href="/assets/js/8.2c4c3174.js"><link rel="prefetch" href="/assets/js/9.7f7fe83d.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.38c94a8f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">hblog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/vue/introduce/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  VUE
+</a></div><div class="nav-item"><a href="/js/" class="nav-link">
+  JS
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/vue/introduce/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  VUE
+</a></div><div class="nav-item"><a href="/js/" class="nav-link">
+  JS
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span></span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue/introduce/" aria-current="page" class="active sidebar-link">介绍</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span></span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vue/lifecycle/" class="sidebar-link">生命周期</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>源码</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="vue源码"><a href="#vue源码" class="header-anchor">#</a> vue源码</h3> <p><a href="https://vue-js.com/learn-vue/" target="_blank" rel="noopener noreferrer">https://vue-js.com/learn-vue/<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>vue：
+数据驱动视图---&gt;数据变化引起视图变化
+<font color="red">UI = render(state)</font>
+状态state是输入，页面UI输出,状态输入变化页面输出也随之变化==&gt;就是数据驱动视图</p> <p>Object 的变化和侦测：
+通过</p> <h3 id="虚拟dom"><a href="#虚拟dom" class="header-anchor">#</a> 虚拟DOM</h3> <p>简单来说就是用JS对象来描述一个DOM节点（用JS模拟一个DOM节点，称为<code>虚拟DOM</code>节点，数据发生变化，对比变化前后的虚拟DOM节点，通过DOM-Diff算法计算需更新的地方再更新视图）</p> <p>这个JS对象就是真实DOM节点的虚拟DOM节点</p> <p>操作真实DOM耗性能 所以需要虚拟DOM</p> <p>vue中存在<code>VNode类</code>，通过这个类实例化出不同类型的虚拟DOM节点，类中包含真实DOM的一系列属性（tag表示节点的标签名、text表示节点中包含的文本、注释节点）</p> <p>创建、更新、删除
+DOM-Diff算法：新前与旧前节点、新后与旧后节点、新后与旧前节点、新前与旧后节点</p> <div class="language-js extra-class"><pre class="language-js"><code>    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;a&quot;</span> id<span class="token operator">=</span><span class="token string">&quot;b&quot;</span><span class="token operator">&gt;</span>我是内容<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+
+    <span class="token punctuation">{</span>
+    tag<span class="token operator">:</span><span class="token string">'div'</span><span class="token punctuation">,</span>        <span class="token comment">// 元素标签</span>
+    attrs<span class="token operator">:</span><span class="token punctuation">{</span>           <span class="token comment">// 属性</span>
+        <span class="token keyword">class</span><span class="token operator">:</span><span class="token string">'a'</span><span class="token punctuation">,</span>
+        id<span class="token operator">:</span><span class="token string">'b'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    text<span class="token operator">:</span><span class="token string">'我是内容'</span><span class="token punctuation">,</span>  <span class="token comment">// 文本内容</span>
+    children<span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span>       <span class="token comment">// 子元素</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><h3 id="vue模板编译"><a href="#vue模板编译" class="header-anchor">#</a> vue模板编译</h3> <p><code>render</code>函数：把用户在<code>&lt;template&gt;&lt;/template&gt;</code>标签中写的类似于原生<code>HTML</code>的内容进行编译，把原生<code>HTML</code>的内容找出来，再把非原生<code>HTML</code>找出来，经过一系列的逻辑处理生成渲染函数；</p> <p><code>render</code>函数会将模板内容生成对应的<code>VNode</code></p> <p>最终目的是用模板生成<code>render</code>函数，用<code>render</code>函数生成与模板对应的<code>VNode</code>，再进行<code>patch</code>算法，完成视图渲染；</p> <p>三大主线：模板解析阶段、优化阶段、代码生成阶段</p> <h3 id="模板解析"><a href="#模板解析" class="header-anchor">#</a> 模板解析</h3> <p>把用户在<code>&lt;template&gt;&lt;/template</code>标签内写的模板使用正则等方式解析成抽象语法树<code>AST</code>，标签内有HTML解析、文本解析器、过滤器解析器；主线函数<code>parser</code>将HTML模板字符串转化成AST</p> <p>把用户写的模板字符串经过解析阶段解析生成对应的抽象语法树</p> <p>经过优化阶段将AST中的静态节点及静态根节点打上标记
+最后生成render函数字符串</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/vue/lifecycle/">
+        生命周期
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.84e29662.js" defer></script><script src="/assets/js/2.053248d9.js" defer></script><script src="/assets/js/11.05f1d642.js" defer></script>
+  </body>
+</html>
