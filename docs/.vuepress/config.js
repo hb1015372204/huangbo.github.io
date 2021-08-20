@@ -6,13 +6,14 @@ module.exports = {
     head: [
         ['link',{
             rel: 'icon',
-            href: '/favicon.ico'
+            href: '/images/favicon.ico'
         }]
     ],
     base: '/',
     themeConfig: {
-        nav: nav,
-        sidebar: sidebar
+        logo: '/images/logo.png',
+        nav: nav,// 右上导航条
+        sidebar: sidebar,// 侧边栏左侧
     },
     extraWatchFiles: [
         '.vuepress/config.js'
